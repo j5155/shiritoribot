@@ -25,7 +25,7 @@ public class ShiritoriWordValidator {
     private boolean isValidWord(String word) throws EliminationException {
         if(!startsWithSameLetterAsPreviousWordEndedWith(word)) return false;
         if(hasBeenUsedBefore(word)) return false;
-        return wordDictionary.contains(word);
+        return wordDictionary.contains(word.toLowerCase());
     }
 
     private boolean startsWithSameLetterAsPreviousWordEndedWith(String word) {
