@@ -72,7 +72,7 @@ public class ActiveGameController extends ChannelController {
 
     private void declareWinner(ShiritoriPlayer player) {
         player.setStatus(PlayerStatus.NO_VISIBLE_STATUS);
-        channel.sendMessage(player.getMember().getEffectiveName() + " WINS!").queue();
+        channel.sendMessage(player.getMember().getAsMention() + " WINS!").queue();
         close();
     }
 
@@ -114,11 +114,11 @@ public class ActiveGameController extends ChannelController {
                 activePlayer = alivePlayers.get(indexOfNextPlayer);
             }
 
-            System.out.println("Next Player: " + activePlayer.getName());
+            System.out.println("Next Player: " + activePlayer.getMember().getAsMention());
             if(nextPlayerDisplayMessage != null) {
                 nextPlayerDisplayMessage.delete().complete();
             }
-            nextPlayerDisplayMessage = channel.sendMessage("Next Player: " + activePlayer.getName()).complete();
+            nextPlayerDisplayMessage = channel.sendMessage("Next Player: " + activePlayer.getMember().getAsMention()).complete();
 
             resetTimeout();
         }
