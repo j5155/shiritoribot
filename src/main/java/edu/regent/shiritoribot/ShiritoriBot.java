@@ -7,6 +7,7 @@ import edu.regent.shiritoribot.discord.command.BaseShiritoriCommand;
 import edu.regent.shiritoribot.game.WordDictionary;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.utils.cache.CacheFlag;
@@ -52,6 +53,7 @@ public class ShiritoriBot {
         builder.setPrefix("!");
         builder.addCommand(new BaseShiritoriCommand());
         builder.setOwnerId("");
+        builder.setActivity(Activity.listening("!shiritori"));
         return builder.build();
     }
 
